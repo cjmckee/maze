@@ -1,13 +1,5 @@
 import random
-import sys
-
-class Space:
-    def __init__(self, x, y):
-        self.x = x
-        self.y = y
-        self.left = True
-        self.top = True
-        self.id = " "
+from space import Space
 
 def valid_move(current, maze):
     x = current.x
@@ -91,17 +83,3 @@ def print_maze(maze):
     for l in range(len(maze[0])):
         string += " ---"
     print(string)
-
-
-
-
-# driver
-if not len(sys.argv) == 3:
-    print("Usage: python maze.py height width")
-    exit()
-
-h = int(sys.argv[1])
-w = int(sys.argv[2])
-start = Space(0, 0)
-end = Space(w-1, h-1)
-maze_builder(h, w, start, end)
